@@ -3,45 +3,7 @@ This is a repo for python scripts to automate Linux and Kubernetes management
 
 ## 脚本一览表
 
-### API 开发 (python-api-development)
-
-| 脚本路径 | 功能简介 |
-|---------|---------|
-| [server-health-api-client-with-logging.py](./python-api-development/server-health-api-client-with-logging.py) | 服务器健康检查 API 客户端，包含日志记录功能，用于定期获取服务器状态信息 |
-| [server-health-api-server.py](./python-api-development/server-health-api-server.py) | 基于 Flask 的服务器健康检查 REST API 服务，提供 CPU、内存、磁盘使用率等系统指标 |
-| [service-check-api-server.py](./python-api-development/service-check-api-server.py) | 服务管理 REST API 服务器，提供 Nginx 等系统服务的远程状态查询和重启操作 |
-| [service-check-client.py](./python-api-development/service-check-client.py) | 服务检查 API 客户端，用于调用服务管理 API 进行远程服务状态监控 |
-
-### 配置文件操作 (python-config-file-operation)
-
-| 脚本路径 | 功能简介 |
-|---------|---------|
-| [get-config-from-yaml.py](./python-config-file-operation/get-config-from-yaml.py) | 从 YAML 配置文件中提取特定配置项，简化配置文件读取操作 |
-| [json-config-management.py](./python-config-file-operation/json-config-management.py) | JSON 配置文件的读取、修改和保存操作，支持配置项的动态更新 |
-| [save-system-metrics-to-json.py](./python-config-file-operation/save-system-metrics-to-json.py) | 收集系统性能指标数据并保存为 JSON 格式，便于后续分析和处理 |
-| [yaml-config-management.py](./python-config-file-operation/yaml-config-management.py) | YAML 配置文件管理，演示如何安全地解析 Kubernetes 部署文件等复杂嵌套结构 |
-| [yamo-config-update-in-scale.py](./python-config-file-operation/yamo-config-update-in-scale.py) | 批量更新 YAML 配置文件，适用于大规模配置文件管理场景 |
-
-### 数据库操作 (python-database)
-
-| 脚本路径 | 功能简介 |
-|---------|---------|
-| *目录为空* | 暂无数据库相关脚本 |
-
-### Kubernetes 管理 (python-kubernetes)
-
-| 脚本路径 | 功能简介 |
-|---------|---------|
-| [create-pods-in-scale.py](./python-kubernetes/create-pods-in-scale.py) | 批量创建 Kubernetes Pod 实例，适用于压力测试和负载测试场景 |
-| [deployment-statefulset-manager-GUI.py](./python-kubernetes/deployment-statefulset-manager-GUI.py) | 基于 Tkinter 的 K8s Deployment 和 StatefulSet 副本数管理图形界面工具 |
-| [list-all-pods.py](./python-kubernetes/list-all-pods.py) | 列出 Kubernetes 集群中所有 Pod 的详细信息，包括状态和资源使用情况 |
-| [list-api-resources.py](./python-kubernetes/list-api-resources.py) | 获取 Kubernetes 集群支持的所有 API 资源类型和版本信息 |
-| [list-namespaces.py](./python-kubernetes/list-namespaces.py) | 列出 Kubernetes 集群中所有命名空间及其状态信息 |
-| [list-nodes.py](./python-kubernetes/list-nodes.py) | 查看 Kubernetes 集群节点信息，包括节点状态和资源容量 |
-| [update-images.py](./python-kubernetes/update-images.py) | 批量更新 Kubernetes 工作负载的容器镜像版本 |
-| [update-replica.py](./python-kubernetes/update-replica.py) | 动态调整 Kubernetes Deployment 或 StatefulSet 的副本数量 |
-
-### Linux 系统监控 (python-linux-monitor-operation)
+### Linux 系统监控
 
 | 脚本路径 | 功能简介 |
 |---------|---------|
@@ -59,17 +21,20 @@ This is a repo for python scripts to automate Linux and Kubernetes management
 | [rename-file-ext.py](./python-linux-monitor-operation/rename-file-ext.py) | 批量修改文件扩展名，支持正则表达式匹配和替换 |
 | [sftp-send-files-to-remote.py](./python-linux-monitor-operation/sftp-send-files-to-remote.py) | 通过 SFTP 协议向远程服务器传输文件，支持批量文件传输 |
 
-### 日志管理 (python-logging)
+### Kubernetes 管理
 
 | 脚本路径 | 功能简介 |
 |---------|---------|
-| [clear-old-logs.py](./python-logging/clear-old-logs.py) | 自动清理指定目录下的过期日志文件，基于文件修改时间进行清理 |
-| [log-rotate.py](./python-logging/log-rotate.py) | 日志轮转工具，实现日志文件的自动切割和归档管理 |
-| [nginx-log-analysis.py](./python-logging/nginx-log-analysis.py) | Nginx 和系统日志分析工具，将非结构化日志转换为结构化数据 |
-| [prase-IP-from-logs.py](./python-logging/prase-IP-from-logs.py) | 从日志文件中提取和分析 IP 地址信息，用于访问统计和安全分析 |
-| [send-log-to-email.py](./python-logging/send-log-to-email.py) | 日志邮件通知工具，将重要日志信息通过邮件发送给管理员 |
+| [create-pods-in-scale.py](./python-kubernetes/create-pods-in-scale.py) | 批量创建 Kubernetes Pod 实例，适用于压力测试和负载测试场景 |
+| [deployment-statefulset-manager-GUI.py](./python-kubernetes/deployment-statefulset-manager-GUI.py) | 基于 Tkinter 的 K8s Deployment 和 StatefulSet 副本数管理图形界面工具 |
+| [list-all-pods.py](./python-kubernetes/list-all-pods.py) | 列出 Kubernetes 集群中所有 Pod 的详细信息，包括状态和资源使用情况 |
+| [list-api-resources.py](./python-kubernetes/list-api-resources.py) | 获取 Kubernetes 集群支持的所有 API 资源类型和版本信息 |
+| [list-namespaces.py](./python-kubernetes/list-namespaces.py) | 列出 Kubernetes 集群中所有命名空间及其状态信息 |
+| [list-nodes.py](./python-kubernetes/list-nodes.py) | 查看 Kubernetes 集群节点信息，包括节点状态和资源容量 |
+| [update-images.py](./python-kubernetes/update-images.py) | 批量更新 Kubernetes 工作负载的容器镜像版本 |
+| [update-replica.py](./python-kubernetes/update-replica.py) | 动态调整 Kubernetes Deployment 或 StatefulSet 的副本数量 |
 
-### 服务管理 (python-service-management)
+### 服务管理
 
 | 脚本路径 | 功能简介 |
 |---------|---------|
@@ -82,6 +47,41 @@ This is a repo for python scripts to automate Linux and Kubernetes management
 | [nginx-manager-GUI.py](./python-service-management/nginx-manager-GUI.py) | Nginx 服务图形化管理工具，通过 SSH 远程管理 Nginx 服务 |
 | [tomcat-manager-GUI.py](./python-service-management/tomcat-manager-GUI.py) | Tomcat 服务图形化管理工具，提供 Web 应用服务器的远程管理功能 |
 | [update-nginx-config.py](./python-service-management/update-nginx-config.py) | Nginx 配置文件更新工具，支持配置文件的动态修改和热重载 |
+
+### 日志管理
+
+| 脚本路径 | 功能简介 |
+|---------|---------|
+| [clear-old-logs.py](./python-logging/clear-old-logs.py) | 自动清理指定目录下的过期日志文件，基于文件修改时间进行清理 |
+| [log-rotate.py](./python-logging/log-rotate.py) | 日志轮转工具，实现日志文件的自动切割和归档管理 |
+| [nginx-log-analysis.py](./python-logging/nginx-log-analysis.py) | Nginx 和系统日志分析工具，将非结构化日志转换为结构化数据 |
+| [prase-IP-from-logs.py](./python-logging/prase-IP-from-logs.py) | 从日志文件中提取和分析 IP 地址信息，用于访问统计和安全分析 |
+| [send-log-to-email.py](./python-logging/send-log-to-email.py) | 日志邮件通知工具，将重要日志信息通过邮件发送给管理员 |
+
+### 配置文件操作
+
+| 脚本路径 | 功能简介 |
+|---------|---------|
+| [get-config-from-yaml.py](./python-config-file-operation/get-config-from-yaml.py) | 从 YAML 配置文件中提取特定配置项，简化配置文件读取操作 |
+| [json-config-management.py](./python-config-file-operation/json-config-management.py) | JSON 配置文件的读取、修改和保存操作，支持配置项的动态更新 |
+| [save-system-metrics-to-json.py](./python-config-file-operation/save-system-metrics-to-json.py) | 收集系统性能指标数据并保存为 JSON 格式，便于后续分析和处理 |
+| [yaml-config-management.py](./python-config-file-operation/yaml-config-management.py) | YAML 配置文件管理，演示如何安全地解析 Kubernetes 部署文件等复杂嵌套结构 |
+| [yamo-config-update-in-scale.py](./python-config-file-operation/yamo-config-update-in-scale.py) | 批量更新 YAML 配置文件，适用于大规模配置文件管理场景 |
+
+### API 开发
+
+| 脚本路径 | 功能简介 |
+|---------|---------|
+| [server-health-api-client-with-logging.py](./python-api-development/server-health-api-client-with-logging.py) | 服务器健康检查 API 客户端，包含日志记录功能，用于定期获取服务器状态信息 |
+| [server-health-api-server.py](./python-api-development/server-health-api-server.py) | 基于 Flask 的服务器健康检查 REST API 服务，提供 CPU、内存、磁盘使用率等系统指标 |
+| [service-check-api-server.py](./python-api-development/service-check-api-server.py) | 服务管理 REST API 服务器，提供 Nginx 等系统服务的远程状态查询和重启操作 |
+| [service-check-client.py](./python-api-development/service-check-client.py) | 服务检查 API 客户端，用于调用服务管理 API 进行远程服务状态监控 |
+
+### 数据库操作
+
+| 脚本路径 | 功能简介 |
+|---------|---------|
+| *目录为空* | 暂无数据库相关脚本 |
 
 ## 技术栈
 
