@@ -35,7 +35,7 @@ if not os.path.exists(dest_dir):
 os.makedirs(os.path.join(src_dir,'subdir1'), exist_ok=True)
 os.makedirs(os.path.join(src_dir,'subdir2'), exist_ok=True)
 
-# 创建文件
+# 创建测试文件
 with open(os.path.join(src_dir, 'file1.txt'), 'w') as f:
     f.write('This is file 1.')
 
