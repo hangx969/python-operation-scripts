@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 Kubernetes 镜像批量传输和加载工具
 
@@ -82,3 +80,6 @@ if __name__ == '__main__':
                 load_image(client, remote_file)
 
         client.close()
+
+
+

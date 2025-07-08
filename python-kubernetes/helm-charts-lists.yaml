@@ -1,0 +1,124 @@
+cert-manager:
+  repoName: jetstack
+  repoURL: https://charts.jetstack.io
+  chartVersion: 1.17.2
+
+kubed:
+  repoName: appscode
+  repoURL: https://charts.appscode.com/stable/
+  chartVersion: 0.13.2
+
+ingress-nginx:
+  repoName: ingress-nginx
+  repoURL: https://kubernetes.github.io/ingress-nginx
+  chartVersion: 4.12.1
+
+external-dns:
+  repoName: external-dns
+  repoURL: https://kubernetes-sigs.github.io/external-dns
+  chartVersion: 1.15.2
+
+external-secrets:
+  repoName: external-secrets
+  repoURL: https://charts.external-secrets.io
+  chartVersion: 0.17.0
+
+oauth2-proxy:
+  repoName: oauth2-proxy
+  repoURL: https://oauth2-proxy.github.io/manifests
+  chartVersion: 7.12.13
+
+trivy-operator:
+  repoName: aqua
+  repoURL: https://aquasecurity.github.io/helm-charts/
+  chartVersion: 0.28.1
+
+kyverno:
+  repoName: kyverno
+  repoURL: https://kyverno.github.io/kyverno/
+  chartVersion: 3.2.7
+
+policy-reporter:
+  repoName: policy-reporter
+  repoURL: https://kyverno.github.io/policy-reporter
+  chartVersion: 2.24.2
+
+capsule:
+  repoName: projectcapsule
+  repoURL: https://projectcapsule.github.io/charts
+  chartVersion: 0.7.4
+
+reloader:
+  repoName: stakater
+  repoURL: https://stakater.github.io/stakater-charts
+  chartVersion: 1.0.115
+
+nfs-subdir-external-provisioner:
+  repoName: nfs-subdir-external-provisioner
+  repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+  chartVersion: 4.0.18
+
+harbor:
+  repoName: harbor
+  repoURL: https://helm.goharbor.io
+  chartVersion: 1.17.0
+
+grafana-agent:
+  repoName: grafana
+  repoURL: https://grafana.github.io/helm-charts
+  chartVersion: 0.42.0
+
+kube-prometheus-stack:
+  repoName: prometheus-community
+  repoURL: https://prometheus-community.github.io/helm-charts
+  chartVersion: 59.1.0
+
+loki:
+  repoName: grafana
+  repoURL: https://grafana.github.io/helm-charts
+  chartVersion: 5.48.0
+
+promtail:
+  repoName: grafana
+  repoURL: https://grafana.github.io/helm-charts
+  chartVersion: 6.15.5
+
+tempo:
+  repoName: grafana
+  repoURL: https://grafana.github.io/helm-charts
+  chartVersion: 1.16.0
+
+strimzi-kafka-operator:
+  repoName: strimzi
+  repoURL: https://strimzi.io/charts/
+  chartVersion: 0.42.0
+
+kafka-ui:
+  repoName: kafka-ui
+  repoURL: https://provectus.github.io/kafka-ui-charts
+  chartVersion: 0.7.6
+
+vpa:
+  repoName: fairwinds-stable
+  repoURL: https://charts.fairwinds.com/stable
+  chartVersion: 4.7.1
+
+goldilocks:
+  repoName: fairwinds-stable
+  repoURL: https://charts.fairwinds.com/stable
+  chartVersion: 9.0.1
+
+pact-broker:
+  repoName: pact-broker
+  repoURL: https://pact-foundation.github.io/pact-broker-chart/
+  chartVersion: 1.1.0
+
+jaeger:
+  repoName: jaegertracing
+  repoURL: https://jaegertracing.github.io/helm-charts
+  chartVersion: 3.4.1
+
+jenkins:
+  repoName: jenkins
+  repoURL: https://charts.jenkins.io
+  chartVersion: 5.8.61
