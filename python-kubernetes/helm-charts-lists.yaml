@@ -2,123 +2,148 @@ cert-manager:
   repoName: jetstack
   repoURL: https://charts.jetstack.io
   chartVersion: 1.17.2
+  chartFileName: cert-manager-v1.17.2.tgz
 
 kubed:
   repoName: appscode
   repoURL: https://charts.appscode.com/stable/
   chartVersion: 0.13.2
+  chartFileName: kubed-v0.13.2.tgz
 
 ingress-nginx:
   repoName: ingress-nginx
   repoURL: https://kubernetes.github.io/ingress-nginx
   chartVersion: 4.12.1
+  chartFileName: ingress-nginx-4.12.1.tgz
 
 external-dns:
   repoName: external-dns
   repoURL: https://kubernetes-sigs.github.io/external-dns
   chartVersion: 1.15.2
+  chartFileName: external-dns-1.15.2.tgz
 
 external-secrets:
   repoName: external-secrets
   repoURL: https://charts.external-secrets.io
   chartVersion: 0.17.0
+  chartFileName: external-secrets-0.17.0.tgz
 
 oauth2-proxy:
   repoName: oauth2-proxy
   repoURL: https://oauth2-proxy.github.io/manifests
   chartVersion: 7.12.13
+  chartFileName: oauth2-proxy-7.12.13.tgz
 
 trivy-operator:
   repoName: aqua
   repoURL: https://aquasecurity.github.io/helm-charts/
   chartVersion: 0.28.1
+  chartFileName: trivy-operator-0.28.1.tgz
 
 kyverno:
   repoName: kyverno
   repoURL: https://kyverno.github.io/kyverno/
   chartVersion: 3.2.7
+  chartFileName: kyverno-3.2.7.tgz
 
 policy-reporter:
   repoName: policy-reporter
   repoURL: https://kyverno.github.io/policy-reporter
   chartVersion: 2.24.2
+  chartFileName: policy-reporter-2.24.2.tgz
 
 capsule:
   repoName: projectcapsule
   repoURL: https://projectcapsule.github.io/charts
   chartVersion: 0.7.4
+  chartFileName: capsule-0.7.4.tgz
 
 reloader:
   repoName: stakater
   repoURL: https://stakater.github.io/stakater-charts
   chartVersion: 1.0.115
+  chartFileName: reloader-1.0.115.tgz
 
 nfs-subdir-external-provisioner:
   repoName: nfs-subdir-external-provisioner
   repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
   chartVersion: 4.0.18
+  chartFileName: nfs-subdir-external-provisioner-4.0.18.tgz
 
 harbor:
   repoName: harbor
   repoURL: https://helm.goharbor.io
   chartVersion: 1.17.0
+  chartFileName: harbor-1.17.0.tgz
 
 grafana-agent:
   repoName: grafana
   repoURL: https://grafana.github.io/helm-charts
   chartVersion: 0.42.0
+  chartFileName: grafana-agent-0.42.0.tgz
 
 kube-prometheus-stack:
   repoName: prometheus-community
   repoURL: https://prometheus-community.github.io/helm-charts
   chartVersion: 59.1.0
+  chartFileName: kube-prometheus-stack-59.1.0.tgz
 
 loki:
   repoName: grafana
   repoURL: https://grafana.github.io/helm-charts
   chartVersion: 5.48.0
+  chartFileName: loki-5.48.0.tgz
 
 promtail:
   repoName: grafana
   repoURL: https://grafana.github.io/helm-charts
   chartVersion: 6.15.5
+  chartFileName: promtail-6.15.5.tgz
 
 tempo:
   repoName: grafana
   repoURL: https://grafana.github.io/helm-charts
   chartVersion: 1.16.0
+  chartFileName: tempo-1.16.0.tgz
 
 strimzi-kafka-operator:
   repoName: strimzi
   repoURL: https://strimzi.io/charts/
   chartVersion: 0.42.0
+  chartFileName: strimzi-kafka-operator-helm-3-chart-0.42.0.tgz
 
 kafka-ui:
   repoName: kafka-ui
   repoURL: https://provectus.github.io/kafka-ui-charts
   chartVersion: 0.7.6
+  chartFileName: kafka-ui-0.7.6.tgz
 
 vpa:
   repoName: fairwinds-stable
   repoURL: https://charts.fairwinds.com/stable
   chartVersion: 4.7.1
+  chartFileName: vpa-4.7.1.tgz
 
 goldilocks:
   repoName: fairwinds-stable
   repoURL: https://charts.fairwinds.com/stable
   chartVersion: 9.0.1
+  chartFileName: goldilocks-9.0.1.tgz
 
 pact-broker:
   repoName: pact-broker
   repoURL: https://pact-foundation.github.io/pact-broker-chart/
   chartVersion: 1.1.0
+  chartFileName: pact-broker-1.1.0.tgz
 
 jaeger:
   repoName: jaegertracing
   repoURL: https://jaegertracing.github.io/helm-charts
   chartVersion: 3.4.1
+  chartFileName: jaeger-3.4.1.tgz
 
 jenkins:
   repoName: jenkins
   repoURL: https://charts.jenkins.io
   chartVersion: 5.8.61
+  chartFileName: jenkins-5.8.61.tgz

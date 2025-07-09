@@ -1,0 +1,53 @@
+PS D:\InstallationPackages\helm-charts> helm registry login harbor.hanxux.local --username 'admin' --password 'Harbor12345' --insecure --debug
+WARNING: Using --password via the CLI is insecure. Use --password-stdin.
+level=DEBUG msg=Request id=0 url=https://harbor.hanxux.local/v2/ method=GET header="   \"User-Agent\": \"Helm/3.18.3\""
+level=DEBUG msg=Response id=0 status="401 Unauthorized" header="   \"Strict-Transport-Security\": \"max-age=31536000; includeSubDomains\"\n   \"Date\": \"Wed, 09 Ju
+l 2025 15:44:48 GMT\"\n   \"Content-Type\": \"application/json; charset=utf-8\"\n   \"Content-Length\": \"76\"\n   \"Docker-Distribution-Api-Version\": \"registry/2
+.0\"\n   \"Set-Cookie\": \"*****\"\n   \"Www-Authenticate\": \"Bearer realm=\\\"https://harbor.hanxux.local/service/token\\\",service=\\\"harbor-registry\\\"\"\n
+\"X-Request-Id\": \"f06e2f30728daa17ed1ea033b3f8f082\"" body="{\"errors\":[{\"code\":\"UNAUTHORIZED\",\"message\":\"unauthorized: unauthorized\"}]}\n"
+level=DEBUG msg=Request id=1 url=https://harbor.hanxux.local/service/token method=POST header="   \"User-Agent\": \"Helm/3.18.3\"\n   \"Content-Type\": \"applicatio
+n/x-www-form-urlencoded\""
+level=DEBUG msg=Response id=1 status="405 Method Not Allowed" header="   \"X-Content-Type-Options\": \"nosniff\"\n   \"X-Request-Id\": \"68c21c8488f33b3ac437feaa78f
+53c9a\"\n   \"Strict-Transport-Security\": \"max-age=31536000; includeSubDomains\"\n   \"Date\": \"Wed, 09 Jul 2025 15:44:48 GMT\"\n   \"Content-Type\": \"text/plai
+n; charset=utf-8\"\n   \"Content-Length\": \"19\"\n   \"Set-Cookie\": \"*****\"" body="Method Not Allowed\n"
+level=DEBUG msg=Request id=2 url=https://harbor.hanxux.local/v2/ method=GET header="   \"User-Agent\": \"Helm/3.18.3\""
+level=DEBUG msg=Response id=2 status="401 Unauthorized" header="   \"X-Request-Id\": \"171db377db425538b727215d2e22a23d\"\n   \"Strict-Transport-Security\": \"max-a
+ge=31536000; includeSubDomains\"\n   \"Date\": \"Wed, 09 Jul 2025 15:44:48 GMT\"\n   \"Content-Type\": \"application/json; charset=utf-8\"\n   \"Content-Length\": \
+"76\"\n   \"Docker-Distribution-Api-Version\": \"registry/2.0\"\n   \"Set-Cookie\": \"*****\"\n   \"Www-Authenticate\": \"Bearer realm=\\\"https://harbor.hanxux.loc
+al/service/token\\\",service=\\\"harbor-registry\\\"\"" body="{\"errors\":[{\"code\":\"UNAUTHORIZED\",\"message\":\"unauthorized: unauthorized\"}]}\n"
+level=DEBUG msg=Request id=3 url="https://harbor.hanxux.local/service/token?service=harbor-registry" method=GET header="   \"Authorization\": \"*****\"\n   \"User-A
+gent\": \"Helm/3.18.3\""
+level=DEBUG msg=Response id=3 status="200 OK" header="   \"Set-Cookie\": \"*****\"\n   \"X-Request-Id\": \"096ee329fdaf0897f1768916e37d6772\"\n   \"Strict-Transport
+-Security\": \"max-age=31536000; includeSubDomains\"\n   \"Date\": \"Wed, 09 Jul 2025 15:44:48 GMT\"\n   \"Content-Type\": \"application/json; charset=utf-8\"" body
+="   Response body redacted due to potential credentials"
+level=DEBUG msg=Request id=4 url=https://harbor.hanxux.local/v2/ method=GET header="   \"Authorization\": \"*****\"\n   \"User-Agent\": \"Helm/3.18.3\""
+level=DEBUG msg=Response id=4 status="200 OK" header="   \"Date\": \"Wed, 09 Jul 2025 15:44:48 GMT\"\n   \"Content-Type\": \"application/json; charset=utf-8\"\n   \
+"Content-Length\": \"2\"\n   \"Docker-Distribution-Api-Version\": \"registry/2.0\"\n   \"Set-Cookie\": \"*****\"\n   \"X-Request-Id\": \"75e4e05f50be054b0df67042318
+b9605\"\n   \"Strict-Transport-Security\": \"max-age=31536000; includeSubDomains\"" body={}
+
+PS D:\InstallationPackages\helm-charts> python -u "e:\work\KEEP-WORKING\CS-Learning\git-repo\python-operation-scripts\python-kubernetes\helm-operations.py"
+WARNING: Using --password via the CLI is insecure. Use --password-stdin.
+level=DEBUG msg=Request id=0 url=https://harbor.hanxux.local/v2/ method=GET header="   \"User-Agent\": \"Helm/3.18.3\""
+level=DEBUG msg=Response id=0 status="401 Unauthorized" header="   \"Content-Type\": \"application/json; charset=utf-8\"\n   \"Content-Length\": \"76\"\n   \"Docker
+-Distribution-Api-Version\": \"registry/2.0\"\n   \"Set-Cookie\": \"*****\"\n   \"Www-Authenticate\": \"Bearer realm=\\\"https://harbor.hanxux.local/service/token\\
+\",service=\\\"harbor-registry\\\"\"\n   \"X-Request-Id\": \"e2382306297a2e8c57a351590aad323d\"\n   \"Strict-Transport-Security\": \"max-age=31536000; includeSubDom
+ains\"\n   \"Date\": \"Wed, 09 Jul 2025 15:46:12 GMT\"" body="{\"errors\":[{\"code\":\"UNAUTHORIZED\",\"message\":\"unauthorized: unauthorized\"}]}\n"
+level=DEBUG msg=Request id=1 url=https://harbor.hanxux.local/service/token method=POST header="   \"Content-Type\": \"application/x-www-form-urlencoded\"\n   \"User
+-Agent\": \"Helm/3.18.3\""
+level=DEBUG msg=Response id=1 status="405 Method Not Allowed" header="   \"X-Content-Type-Options\": \"nosniff\"\n   \"X-Request-Id\": \"a6568f1b2bde6825b84023de7fd
+e54b9\"\n   \"Strict-Transport-Security\": \"max-age=31536000; includeSubDomains\"\n   \"Date\": \"Wed, 09 Jul 2025 15:46:12 GMT\"\n   \"Content-Type\": \"text/plai
+n; charset=utf-8\"\n   \"Content-Length\": \"19\"\n   \"Set-Cookie\": \"*****\"" body="Method Not Allowed\n"
+level=DEBUG msg=Request id=2 url=https://harbor.hanxux.local/v2/ method=GET header="   \"User-Agent\": \"Helm/3.18.3\""
+level=DEBUG msg=Response id=2 status="401 Unauthorized" header="   \"X-Request-Id\": \"77a3ee9543b8e410b4e1b37055c2a2c3\"\n   \"Strict-Transport-Security\": \"max-a
+ge=31536000; includeSubDomains\"\n   \"Date\": \"Wed, 09 Jul 2025 15:46:12 GMT\"\n   \"Content-Type\": \"application/json; charset=utf-8\"\n   \"Content-Length\": \
+"76\"\n   \"Docker-Distribution-Api-Version\": \"registry/2.0\"\n   \"Set-Cookie\": \"*****\"\n   \"Www-Authenticate\": \"Bearer realm=\\\"https://harbor.hanxux.loc
+al/service/token\\\",service=\\\"harbor-registry\\\"\"" body="{\"errors\":[{\"code\":\"UNAUTHORIZED\",\"message\":\"unauthorized: unauthorized\"}]}\n"
+level=DEBUG msg=Request id=3 url="https://harbor.hanxux.local/service/token?service=harbor-registry" method=GET header="   \"Authorization\": \"*****\"\n   \"User-A
+gent\": \"Helm/3.18.3\""
+level=DEBUG msg=Response id=3 status="401 Unauthorized" header="   \"Set-Cookie\": \"*****\"\n   \"X-Request-Id\": \"2edc572f93a2577e92f5e6de1d63d318\"\n   \"Strict
+-Transport-Security\": \"max-age=31536000; includeSubDomains\"\n   \"Date\": \"Wed, 09 Jul 2025 15:46:13 GMT\"\n   \"Content-Length\": \"0\"" body="   Response body
+ without a content type is not printed"
+Error: authenticating to "harbor.hanxux.local": GET "https://harbor.hanxux.local/v2/": GET "https://harbor.hanxux.local/service/token?service=harbor-registry": resp
+onse status code 401: Unauthorized
+helm.go:92: 2025-07-09 23:46:15.3408821 +0800 CST m=+1.774229701 [debug] authenticating to "harbor.hanxux.local": GET "https://harbor.hanxux.local/v2/": GET "https:
+//harbor.hanxux.local/service/token?service=harbor-registry": response status code 401: Unauthorized
