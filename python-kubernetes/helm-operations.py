@@ -60,6 +60,7 @@ def helm_push_harbor(harbor_url, chart_file, repo_name):
 if __name__ == '__main__':
     try:
         charts_file = os.path.join(os.path.dirname(__file__),'helm-charts-lists.yaml')
+        harbor_url = "harbor.hanxux.local"
         with open(charts_file, 'r') as f:
             charts = yaml.safe_load(f)
             for chart_name, chart_info in charts.items():
@@ -71,6 +72,7 @@ if __name__ == '__main__':
                     os.makedirs(chart_dir)
                 os.chdir(chart_dir)
                 helm_chart_pull(chart_info['repoName'], chart_name, chart_info['chartVersion'])
+                # TODO: Add logic for pushing chart to harbor
 
     except Exception as e:
         print(f"Error: {str(e)}")

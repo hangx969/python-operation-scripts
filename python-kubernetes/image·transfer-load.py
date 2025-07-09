@@ -78,8 +78,6 @@ if __name__ == '__main__':
                 transfer_image(client, local_file, remote_file)
                 # 远程主机解压镜像
                 load_image(client, remote_file)
-
+                # 删除本地文件
+                os.remove(image)
         client.close()
-
-
-
