@@ -23,7 +23,6 @@ Kubernetes 镜像批量传输和加载工具
     4. 批量处理
        - 支持多个镜像文件的批量处理
        - 支持多个目标主机的并行操作
-       - 自动清理已传输的本地文件
 
 工作流程:
     1. 检查并创建本地镜像存储目录
@@ -32,7 +31,6 @@ Kubernetes 镜像批量传输和加载工具
     4. 扫描本地 .tar 镜像文件
     5. 逐个传输镜像到远程主机
     6. 在远程主机上导入镜像到 containerd
-    7. 删除本地已处理的镜像文件
     8. 关闭连接，处理下一台主机
 
 使用场景:
@@ -116,6 +114,4 @@ if __name__ == '__main__':
                 transfer_image(client, local_file, remote_file)
                 # 远程主机解压镜像
                 load_image(client, remote_file)
-                # 删除本地文件
-                os.remove(image)
         client.close()
