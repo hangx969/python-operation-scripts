@@ -1,3 +1,24 @@
+# Helm Charts 配置文件
+#
+# 功能描述:
+#   该 YAML 文件包含了用于 Kubernetes 平台工具部署的 Helm Charts 配置信息。
+#   主要用于自动化批量下载、管理和部署各种开源工具到 Kubernetes 集群。
+#
+# 配置结构:
+#   每个工具包含以下字段：
+#   - repoName: Helm 仓库名称
+#   - repoURL: Helm 仓库地址
+#   - chartVersion: Chart 版本号
+#   - chartFileName: Chart 文件名（下载后的 .tgz 文件名）
+#
+# 使用方式:
+#   该文件被 Python 脚本 helm-operations.py 读取，用于：
+#   1. 批量添加 Helm 仓库
+#   2. 更新仓库索引
+#   3. 下载指定版本的 Chart 包
+#   4. 推送 Chart 包到私有 Harbor 仓库
+---
+
 cert-manager:
   repoName: jetstack
   repoURL: https://charts.jetstack.io

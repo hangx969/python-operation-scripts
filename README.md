@@ -7,9 +7,11 @@ This is a repo for python scripts to automate Linux and Kubernetes management
 
 | 脚本路径 | 功能简介 |
 |---------|---------|
+| [auto-restart-high-cpu-process-with-email.py](./python-linux-monitor-operation/auto-restart-high-cpu-process-with-email.py) | 高 CPU 占用进程自动重启工具，监控进程 CPU 使用率并在超阈值时自动重启，同时发送邮件通知 |
 | [backup-files-to-dir.py](./python-linux-monitor-operation/backup-files-to-dir.py) | 文件备份工具，将指定文件或目录备份到目标位置 |
 | [check-missing-parameters.py](./python-linux-monitor-operation/check-missing-parameters.py) | 检查系统配置或脚本参数的完整性，确保必要参数不缺失 |
 | [check-server-alive.py](./python-linux-monitor-operation/check-server-alive.py) | 持续监控多个服务器的网络连通性，通过 ping 命令检测服务器存活状态 |
+| [get-cpu-mem-swap-load-report.py](./python-linux-monitor-operation/get-cpu-mem-swap-load-report.py) | 生成系统 CPU、内存、交换空间和负载的综合监控报告 |
 | [get-disk-partition.py](./python-linux-monitor-operation/get-disk-partition.py) | 获取系统磁盘分区信息，包括分区大小、挂载点和文件系统类型 |
 | [get-filesystem-cpu-memory-usage.py](./python-linux-monitor-operation/get-filesystem-cpu-memory-usage.py) | 生成系统综合监控报告，集成 CPU、内存和磁盘使用情况 |
 | [get-linux-disk-usage.py](./python-linux-monitor-operation/get-linux-disk-usage.py) | 监控 Linux 系统磁盘空间使用情况，支持多磁盘和分区监控 |
@@ -18,6 +20,7 @@ This is a repo for python scripts to automate Linux and Kubernetes management
 | [get-net-io.py](./python-linux-monitor-operation/get-net-io.py) | 监控网络接口的 I/O 统计信息，包括流量和数据包统计 |
 | [get-process-pid.py](./python-linux-monitor-operation/get-process-pid.py) | 根据进程名称查找对应的进程 ID，用于进程管理和监控 |
 | [get-system-load.py](./python-linux-monitor-operation/get-system-load.py) | 获取系统负载平均值，监控系统整体性能状态 |
+| [monitor-with-logging.py](./python-linux-monitor-operation/monitor-with-logging.py) | 带日志记录的系统监控工具，持续监控系统状态并记录日志 |
 | [rename-file-ext.py](./python-linux-monitor-operation/rename-file-ext.py) | 批量修改文件扩展名，支持正则表达式匹配和替换 |
 | [sftp-send-files-to-remote.py](./python-linux-monitor-operation/sftp-send-files-to-remote.py) | 通过 SFTP 协议向远程服务器传输文件，支持批量文件传输 |
 
@@ -27,6 +30,8 @@ This is a repo for python scripts to automate Linux and Kubernetes management
 |---------|---------|
 | [create-pods-in-scale.py](./python-kubernetes/create-pods-in-scale.py) | 批量创建 Kubernetes Pod 实例，适用于压力测试和负载测试场景 |
 | [deployment-statefulset-manager-GUI.py](./python-kubernetes/deployment-statefulset-manager-GUI.py) | 基于 Tkinter 的 K8s Deployment 和 StatefulSet 副本数管理图形界面工具 |
+| [helm-operations.py](./python-kubernetes/helm-operations.py) | Helm Charts 批量管理和 Harbor 推送工具，实现 Helm 仓库管理、Chart 下载和推送到私有 Harbor 仓库 |
+| [image·transfer-load.py](./python-kubernetes/image·transfer-load.py) | Kubernetes 镜像批量传输和加载工具，通过 SSH 将容器镜像批量分发到多个 K8s 节点并自动导入 |
 | [list-all-pods.py](./python-kubernetes/list-all-pods.py) | 列出 Kubernetes 集群中所有 Pod 的详细信息，包括状态和资源使用情况 |
 | [list-api-resources.py](./python-kubernetes/list-api-resources.py) | 获取 Kubernetes 集群支持的所有 API 资源类型和版本信息 |
 | [list-namespaces.py](./python-kubernetes/list-namespaces.py) | 列出 Kubernetes 集群中所有命名空间及其状态信息 |
@@ -88,11 +93,13 @@ This is a repo for python scripts to automate Linux and Kubernetes management
 - **Web 框架**: Flask (REST API 开发)
 - **GUI 框架**: Tkinter (桌面应用程序)
 - **系统监控**: psutil (系统资源监控)
-- **容器编排**: Kubernetes Python Client
-- **远程连接**: paramiko (SSH 连接)
+- **容器编排**: Kubernetes Python Client, Helm CLI
+- **远程连接**: paramiko (SSH/SFTP 连接)
 - **配置文件**: PyYAML, JSON
 - **日志处理**: 正则表达式, 文件操作
 - **服务管理**: systemctl, subprocess
+- **容器管理**: containerd, Docker
+- **仓库管理**: Harbor Registry, OCI
 
 ## 使用说明
 
@@ -101,5 +108,13 @@ This is a repo for python scripts to automate Linux and Kubernetes management
    ```bash
    pip install flask psutil kubernetes paramiko pyyaml
    ```
-3. 根据具体脚本需求配置相关参数（如服务器地址、认证信息等）
-4. 运行对应的 Python 脚本
+3. 对于 Kubernetes 相关脚本，确保已安装：
+   - kubectl 命令行工具
+   - helm 命令行工具（用于 helm-operations.py）
+   - 配置有效的 kubeconfig 文件
+4. 对于镜像传输脚本，确保目标主机：
+   - 已安装 containerd 或 Docker
+   - SSH 服务正常运行
+   - 具有相应的操作权限
+5. 根据具体脚本需求配置相关参数（如服务器地址、认证信息等）
+6. 运行对应的 Python 脚本

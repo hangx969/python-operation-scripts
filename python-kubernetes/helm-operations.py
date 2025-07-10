@@ -1,3 +1,30 @@
+"""
+Helm Charts 批量管理和 Harbor 推送工具
+
+功能描述:
+    该脚本用于自动化管理 Helm Charts 的完整生命周期，包括仓库管理、
+    Chart 下载和推送到私有 Harbor 仓库。主要实现以下功能：
+
+    1. Helm 仓库管理
+       - 检查仓库是否已添加，避免重复操作
+       - 批量添加 Helm 仓库
+       - 更新仓库索引
+
+    2. Chart 包管理
+       - 批量下载指定版本的 Helm Charts
+       - 检查本地文件是否存在，避免重复下载
+       - 支持多种 Chart 格式和版本
+
+    3. Harbor 集成
+       - 登录私有 Harbor 仓库（支持 PowerShell 环境）
+       - 推送 Chart 包到 Harbor 的 OCI 仓库
+       - 支持不安全连接和自签名证书
+
+配置文件:
+    - helm-charts-lists.yaml: 包含所有要管理的 Charts 信息
+    - 支持 repoName, repoURL, chartVersion, chartFileName 字段
+"""
+
 import subprocess, yaml, os
 
 def is_helm_repo_added(repo):
