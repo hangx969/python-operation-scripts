@@ -130,7 +130,7 @@ tempo:
 strimzi-kafka-operator:
   repoName: strimzi
   repoURL: https://strimzi.io/charts/
-  chartVersion: 0.42.0
+  chartVersion: 0.46.1
   chartFileName: strimzi-kafka-operator-helm-3-chart-0.42.0.tgz
 
 kafka-ui:

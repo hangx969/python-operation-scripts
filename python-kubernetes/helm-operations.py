@@ -29,7 +29,7 @@ import subprocess, yaml, os
 
 def is_helm_repo_added(repo):
     try:
-        result = subprocess.run(f"helm repo list", shell=True, encoding='utf-8', capture_output=True, text=True)
+        result = subprocess.run(f"helm repo list", shell=True, encoding='utf-8', capture_output=True, text=True, errors='ignore')
         if result.returncode == 0:
             if repo in result.stdout:
                 print(f"Helm repo {repo} has been added, skipping.")
@@ -47,9 +47,11 @@ def is_helm_repo_added(repo):
 
 def helm_repo_add(repo, url):
     try:
-        result = subprocess.run(f'helm repo add {repo} {url}', shell=True, encoding='utf-8', capture_output=True, text=True)
+        result = subprocess.run(f'helm repo add {repo} {url}', shell=True, encoding='utf-8', capture_output=True, text=True, errors='ignore')
         if result.returncode == 0:
             print(f"Helm repo {repo} is added.")
+        else:
+            print(f"Error adding repo {repo}: {result.stderr}")
     except subprocess.CalledProcessError as e:
         print(f"Command Execution failed: {str(e)}")
     except Exception as e:
@@ -57,9 +59,11 @@ def helm_repo_add(repo, url):
 
 def helm_repo_update(repo):
     try:
-        result = subprocess.run(f'helm repo update {repo}', shell=True, capture_output=True, encoding='utf-8', text=True)
+        result = subprocess.run(f'helm repo update {repo}', shell=True, capture_output=True, encoding='utf-8', text=True, errors='ignore')
         if result.returncode == 0:
             print(f"Helm repo {repo} is updated.")
+        else:
+            print(f"Error updating repo {repo}: {result.stderr}")
     except subprocess.CalledProcessError as e:
         print(f"Command Execution failed: {str(e)}")
     except Exception as e:
@@ -67,9 +71,11 @@ def helm_repo_update(repo):
 
 def helm_chart_pull(repo, chart_name, version):
     try:
-        result = subprocess.run(f'helm pull {repo}/{chart_name} --version {version}', shell=True, capture_output=True, encoding='utf-8', text=True)
+        result = subprocess.run(f'helm pull {repo}/{chart_name} --version {version}', shell=True, capture_output=True, encoding='utf-8', text=True, errors='ignore')
         if result.returncode == 0:
             print(f"Helm chart {chart_name} is pulled.")
+        else:
+            print(f"Error pulling chart {chart_name}: {result.stderr}")
     except subprocess.CalledProcessError as e:
         print(f"Command Execution failed: {str(e)}")
     except Exception as e:
@@ -112,30 +118,32 @@ def helm_login_harbor_powershell(harbor_url, username="admin", password="Harbor1
             timeout=60
         )
 
-        print(f"PowerShell 输出: {result.stdout}")
+        print(f"PowerShell output: {result.stdout}")
         if result.stderr:
-            print(f"PowerShell 错误: {result.stderr}")
+            print(f"PowerShell error: {result.stderr}")
 
         if result.returncode == 0:
             print(f"Harbor {harbor_url} login successfully via PowerShell.")
             return True
         else:
-            print(f"PowerShell 登录失败，退出码: {result.returncode}")
+            print(f"PowerShell loging failed: {result.returncode}")
             return False
 
     except subprocess.TimeoutExpired:
-        print("PowerShell 执行超时")
+        print("PowerShell timeout")
         return False
     except Exception as e:
-        print(f"PowerShell 执行错误: {str(e)}")
+        print(f"PowerShell error: {str(e)}")
         return False
 
 
 def helm_push_harbor(harbor_url, chart_file, repo_name):
     try:
-        result = subprocess.run(f"helm push {chart_file} oci://{harbor_url}/platform-tools-local/{repo_name} --insecure-skip-tls-verify", shell=True, capture_output=True, encoding='utf-8', text=True)
+        result = subprocess.run(f"helm push {chart_file} oci://{harbor_url}/platform-tools-local/{repo_name} --insecure-skip-tls-verify", shell=True, capture_output=True, encoding='utf-8', text=True, errors='ignore')
         if result.returncode == 0:
             print(f"Helm chart {chart_file} pushed successfully.")
+        else:
+            print(f"Error pushing chart {chart_file}: {result.stderr}")
     except subprocess.CalledProcessError as e:
         print(f"Command Execution failed: {str(e)}")
     except Exception as e:
@@ -147,32 +155,32 @@ if __name__ == '__main__':
         harbor_url = "harbor.hanxux.local"
         helm_login_harbor_powershell(harbor_url)
 
-        # charts_info_yaml = os.path.join(os.path.dirname(__file__),'helm-charts-lists.yaml')
+        charts_info_yaml = os.path.join(os.path.dirname(__file__),'helm-charts-lists.yaml')
 
-        # chart_dir = r'D:\InstallationPackages\helm-charts'
-        # # 判断路径是否存在，不存在则创建
-        # if not os.path.exists(chart_dir):
-        #     os.makedirs(chart_dir)
+        chart_dir = r'D:\InstallationPackages\helm-charts'
+        # 判断路径是否存在，不存在则创建
+        if not os.path.exists(chart_dir):
+            os.makedirs(chart_dir)
 
-        # with open(charts_info_yaml, 'r') as f:
-        #     # 加载同级目录下的charts信息yaml文件
-        #     charts = yaml.safe_load(f)
-        #     for chart_name, chart_info in charts.items():
-        #         # 判断helm repo是否已经存在
-        #         if not is_helm_repo_added(chart_info['repoName']):
-        #             # repo不存在，则添加helm repo并更新
-        #             helm_repo_add(chart_info['repoName'], chart_info['repoURL'])
-        #             helm_repo_update(chart_info['repoName'])
+        with open(charts_info_yaml, 'r', encoding='utf-8') as f:
+            # 加载同级目录下的charts信息yaml文件
+            charts = yaml.safe_load(f)
+            for chart_name, chart_info in charts.items():
+                # 判断helm repo是否已经存在
+                if not is_helm_repo_added(chart_info['repoName']):
+                    # repo不存在，则添加helm repo并更新
+                    helm_repo_add(chart_info['repoName'], chart_info['repoURL'])
+                    helm_repo_update(chart_info['repoName'])
 
-        #         # 切换到chart目录
-        #         os.chdir(chart_dir)
-        #         # 判断chart tgz文件是否已经存在了，不存在再去拉
-        #         if not os.path.exists(chart_info['chartFileName']):
-        #             # 拉取helm chart
-        #             helm_chart_pull(chart_info['repoName'], chart_name, chart_info['chartVersion'])
+                # 切换到chart目录
+                os.chdir(chart_dir)
+                # 判断chart tgz文件是否已经存在了，不存在再去拉
+                if not os.path.exists(chart_info['chartFileName']):
+                    # 拉取helm chart
+                    helm_chart_pull(chart_info['repoName'], chart_name, chart_info['chartVersion'])
 
-        #         # push到harbor
-        #         helm_push_harbor(harbor_url, chart_info['chartFileName'], chart_info['repoName'])
+                # push到harbor
+                helm_push_harbor(harbor_url, chart_info['chartFileName'], chart_info['repoName'])
 
     except Exception as e:
         print(f"Error: {str(e)}")
